@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dunbarton Block Party 🍖</title>
+  <title>Dunbarton Block Party 🎉</title>
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -116,17 +116,57 @@
 
     .date-chip {
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
       gap: 0.6rem;
       background: #fff;
-      border: 2.5px solid var(--burnt);
-      border-radius: 100px;
-      padding: 0.75rem 2rem;
+      padding: 0;
       font-size: 1.15rem;
       font-weight: 900;
       color: var(--burnt);
       box-shadow: 4px 4px 0 var(--burnt);
       animation: slideUp .6s cubic-bezier(.34,1.56,.64,1) .24s both;
+      margin: 1rem 0 1rem 0;
+    }
+
+    .date-chip-content {
+      padding: 0.1rem 2rem 0.75rem 2rem;
+    }
+
+    .date-chip-bar {
+      background: var(--burnt);
+      color: #fff;
+      width: 100%;
+      font-size: 0.65rem;
+      margin: 0.3rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .rsvp-now {
+      display:inline-block;
+      margin-top:1.4rem;
+      background:var(--burnt);
+      color:#fff;
+      font-weight:800;
+      padding:0.75rem 1.6rem;
+      border-radius:100px;
+      box-shadow: 0 6px 20px rgba(184,92,26,0.15);
+      transition:background .2s, box-shadow .2s;
+      animation: slideUp .6s ease .3s both;
+      margin-bottom: 1rem;
+    }
+
+    .food-details {
+      max-width: 480px;
+      animation: slideUp .6s ease .3s both;
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: rgba(184,92,26,0.1);
+      color: var(--burnt);
+      font-weight: 700;
+      margin: 1.4rem;
+      /* border-radius: 100px; */
     }
 
     .loc-tag {
@@ -186,159 +226,9 @@
       display: none;
     }
 
-    .scroll-arrow {
-      position: absolute;
-      bottom: 1.8rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      color: var(--burnt);
-      opacity: 0.5;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      animation: bob 2s ease-in-out infinite;
-    }
-    .scroll-arrow svg { width:20px; height:20px; }
-
     /* ── DIVIDER WAVE ───────────────────────────────────────── */
     .wave-div { line-height:0; overflow:hidden; }
     .wave-div svg { display:block; width:100%; }
-
-    /* ── DETAILS ────────────────────────────────────────────── */
-    .section {
-      padding: 3.5rem 1.5rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .sec-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: 900;
-      color: var(--orange);
-      text-align: center;
-      margin-bottom: 0.4rem;
-    }
-    .sec-title {
-      font-family: 'Lilita One', cursive;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      color: var(--burnt);
-      text-align: center;
-      margin-bottom: 1.8rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 22px;
-      padding: 1.8rem 1.2rem 1.5rem;
-      text-align: center;
-      border: 2px solid var(--peach);
-      box-shadow: 0 4px 20px rgba(184,92,26,0.07);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(184,92,26,0.15); }
-    .card-icon { font-size: 2.4rem; margin-bottom: 0.6rem; }
-    .card-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 900; color: var(--orange); margin-bottom: 0.3rem; }
-    .card-val { font-size: 1.05rem; font-weight: 800; color: var(--dark); }
-
-    /* ── BRING SECTION ──────────────────────────────────────── */
-    .bring-wrap {
-      background: linear-gradient(135deg, #FFF5DC, #FFE5A8);
-      border-radius: 28px;
-      padding: 2.5rem 1.8rem;
-    }
-    .bring-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 0.9rem;
-      margin-top: 1.5rem;
-    }
-    .bring-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.1rem 1.2rem;
-      font-weight: 800;
-      font-size: 0.97rem;
-      box-shadow: 0 2px 12px rgba(184,92,26,0.08);
-    }
-    .bring-item .bi-icon { font-size: 1.8rem; flex-shrink: 0; }
-
-    /* ── RSVP ───────────────────────────────────────────────── */
-    .rsvp-band {
-      background: linear-gradient(135deg, var(--burnt) 0%, #9B4A12 100%);
-      padding: 4rem 1.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .rsvp-band::before {
-      content:'';
-      position:absolute; inset:0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-    .rsvp-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .rsvp-band .sec-label { color: rgba(255,255,255,0.65); }
-    .rsvp-band .sec-title { color: #fff; margin-bottom: 0.6rem; }
-    .rsvp-sub { color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 600; margin-bottom: 2rem; }
-
-    .rsvp-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      align-items: start;
-    }
-    .rsvp-card {
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.22);
-      border-radius: 20px;
-      padding: 1.8rem 1.4rem;
-      color: #fff;
-      backdrop-filter: blur(8px);
-    }
-    .rsvp-card .rc-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .rsvp-card .rc-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 900; opacity: 0.7; margin-bottom: 0.4rem; }
-    .rsvp-card .rc-val { font-size: 1.05rem; font-weight: 800; }
-    .rsvp-card a { color: #fff; text-underline-offset: 3px; }
-    .rsvp-card a:hover { opacity: 0.85; }
-
-    .qr-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .qr-frame {
-      background: #fff;
-      border-radius: 14px;
-      padding: 10px;
-      box-shadow: 0 6px 28px rgba(0,0,0,0.25);
-    }
-    .qr-frame img {
-      display: block;
-      width: 130px;
-      height: 130px;
-      border-radius: 6px;
-    }
 
     /* ── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -382,9 +272,6 @@
     .fade-up:nth-child(3) { transition-delay:.16s; }
     .fade-up:nth-child(4) { transition-delay:.24s; }
 
-    @media(max-width:520px) {
-      .cards { grid-template-columns:1fr 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -403,11 +290,24 @@
   </div>
 
   <div class="hero-inner">
-    <div class="invite-badge">🍖 You're Invited 🦴</div>
+    <div class="invite-badge">🏡 You're Invited 🌭</div>
     <h1>DUNBARTON<br>BLOCK PARTY</h1>
     <p class="subtitle">Meet Your Neighbors!</p>
-    <div class="date-chip">📅&nbsp; Saturday, June 13th &nbsp;·&nbsp; 4:00 PM</div>
-    <p class="loc-tag">📍 5494 S – 5504 S</p>
+    <div class="date-chip">
+      <div class="date-chip-bar">
+        Date & Time
+      </div>
+      <div class="date-chip-content">
+      📅&nbsp; Saturday, June 13th &nbsp;·&nbsp; 4:00 PM
+      </div>
+    </div>
+    <p class="loc-tag">📍 5494 S &amp; 5504 S</p>
+
+    <p class="food-details">
+        Hot dogs will be provided, but feel free to BYOB and bring a side dish or dessert to share!
+    </p>
+
+    <a href="#rsvp" class="rsvp-now">RSVP Now &rarr;</a>
 
     <div class="countdown-wrap" id="countdown-wrap">
       <p class="countdown-label-top">Counting down to the party</p>
@@ -420,85 +320,10 @@
     </div>
     <p class="party-msg" id="party-msg">🎉 It's Party Day! 🎉</p>
   </div>
-
-  <div class="scroll-arrow">
-    <span>Details</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </div>
 </div>
 
-<!-- wave transition -->
-<div class="wave-div">
-  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,48 C240,10 480,48 720,24 C960,0 1200,40 1440,20 L1440,0 L0,0 Z" fill="#FFCF6E"/>
-    <path fill="var(--cream)" d="M0,48 L1440,48 L1440,20 C1200,40 960,0 720,24 C480,48 240,10 0,48 Z"/>
-  </svg>
-</div>
-
-<!-- ══ DETAILS ══════════════════════════════════════════════════ -->
-<div class="section fade-up">
-  <p class="sec-label">Party Details</p>
-  <h2 class="sec-title">When &amp; Where</h2>
-  <div class="cards">
-    <div class="card fade-up"><div class="card-icon">📅</div><div class="card-tag">Date</div><div class="card-val">Saturday, June 13th</div></div>
-    <div class="card fade-up"><div class="card-icon">🕓</div><div class="card-tag">Time</div><div class="card-val">4:00 PM</div></div>
-    <div class="card fade-up"><div class="card-icon">📍</div><div class="card-tag">Location</div><div class="card-val">5494 S – 5504 S</div></div>
-    <div class="card fade-up"><div class="card-icon">🌭</div><div class="card-tag">Food</div><div class="card-val">Hot dogs on us!</div></div>
-  </div>
-</div>
-
-<!-- ══ BRING ════════════════════════════════════════════════════ -->
-<div class="section fade-up">
-  <div class="bring-wrap">
-    <p class="sec-label">Come Prepared</p>
-    <h2 class="sec-title">What to Bring</h2>
-    <div class="bring-grid">
-      <div class="bring-item"><span class="bi-icon">🪑</span><span>Lawn chairs &amp; blankets</span></div>
-      <div class="bring-item"><span class="bi-icon">🎯</span><span>Yard games</span></div>
-      <div class="bring-item"><span class="bi-icon">😄</span><span>Your friendly self</span></div>
-      <div class="bring-item"><span class="bi-icon">🤝</span><span>Ready to meet the neighbors!</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ RSVP ═════════════════════════════════════════════════════ -->
-<div class="wave-div" style="background:var(--cream);">
-  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,0 C360,40 720,0 1080,30 C1260,44 1380,10 1440,20 L1440,40 L0,40 Z" fill="#B85C1A"/>
-  </svg>
-</div>
-<div class="rsvp-band">
-  <div class="rsvp-inner fade-up">
-    <p class="sec-label">Join Us</p>
-    <h2 class="sec-title">RSVP &amp; Info</h2>
-    <p class="rsvp-sub">Hot dogs are on the house — just let us know you're coming so we cook enough!</p>
-    <div class="rsvp-cards">
-      <div class="rsvp-card">
-        <div class="rc-icon">📱</div>
-        <div class="rc-label">Text or Call</div>
-        <div class="rc-val">[Your Phone Number]</div>
-      </div>
-      <div class="rsvp-card">
-        <div class="rc-icon">🌐</div>
-        <div class="rc-label">Website</div>
-        <div class="rc-val"><a href="https://dunbartonblockparty.com" target="_blank">DunbartonBlockParty.com</a></div>
-      </div>
-      <div class="rsvp-card qr-wrap">
-        <div class="rc-icon">📷</div>
-        <div class="rc-label">Scan to RSVP</div>
-        <div class="qr-frame">
-          <img src="data:image/jpeg;base64,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" alt="QR Code — scan to RSVP">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
-<footer>🍖 &nbsp; See you there, neighbor! &nbsp; 🦴</footer>
-
+<footer>🏘️ &nbsp; See you there, neighbor! &nbsp; 👋</footer>
 <script>
-  // ── Countdown ────────────────────────────────────────────────
   (function() {
     const target = new Date('2026-06-13T16:00:00');
     function tick() {
@@ -522,14 +347,6 @@
     tick();
     setInterval(tick, 1000);
   })();
-
-  // ── Scroll fade-in ───────────────────────────────────────────
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
